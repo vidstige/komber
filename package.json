@@ -2,7 +2,9 @@
   "name": "komber",
   "version": "1.0.0",
   "description": "",
-  "dependencies": {},
+  "dependencies": {
+    "knockout": "^3.5.1"
+  },
   "devDependencies": {
     "parcel": "^2.8.1"
   },

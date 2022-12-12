@@ -3,10 +3,15 @@
   <head>
     <meta charset="utf-8"/>
     <title>komber</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inconsolata" />
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="app.ts"></script>
   </head>
   <body>
-    <h1>Hello, World!</h1>
+    <div data-bind="foreach: cards, event: { mousemove: mouse.move.bind(mouse) }" class="area">
+      <div class="card" data-bind="event: { mousedown: $parent.mouse.down.bind($parent.mouse), mouseup: $parent.mouse.up.bind($parent.mouse) }, style: {left: layout.left, top: layout.top}">
+        <p data-bind="text: title"></p>
+      </div>
+    </div>
   </body>
 </html>
