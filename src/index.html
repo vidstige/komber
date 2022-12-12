@@ -10,7 +10,7 @@
   <body>
     <div data-bind="foreach: cards, event: { mousemove: mouse.move.bind(mouse) }" class="area">
       <div class="card" data-bind="event: { mousedown: $parent.mouse.down.bind($parent.mouse), mouseup: $parent.mouse.up.bind($parent.mouse) }, style: {left: layout.left, top: layout.top}">
-        <p data-bind="text: title"></p>
+        <p data-bind="text: title" class="title"></p>
       </div>
     </div>
   </body>

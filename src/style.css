@@ -1,9 +1,13 @@
 body  {
     background-color: #222;
-}
-body, div, p {
     font-size: 24px;
     font-family: Inconsolata, monospace;
+}
+p {
+    margin: 0;
+}
+.title {
+    cursor: grab;
 }
 div.area {
     border: 1px dashed;
