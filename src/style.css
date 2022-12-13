@@ -30,7 +30,7 @@ p {
 div.area {
     border: 1px dashed #555;
     width: 1024px;
-    height: 1024px;
+    height: 768px;
 }
 div.card {
     background: #555;
@@ -38,13 +38,14 @@ div.card {
     border-radius: 8px;
     padding: 8px;
     position: absolute;
-    font-size: 80%;
 }
 div.inputs {
+    font-size: 60%;
     float: left;
     background-color: pink;
 }
 div.outputs {
+    font-size: 60%;
     float: right;
     background-color: cyan;
 }
