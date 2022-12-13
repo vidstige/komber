@@ -70,9 +70,19 @@ ko.bindingHandlers.element = {
     }
 };
 
-function _draw(ctx: CanvasRenderingContext2D, el0: HTMLElement, el1: HTMLElement) {
-    const rect0 = el0.getBoundingClientRect();
-    const rect1 = el1.getBoundingClientRect();
+function relativeTo(rect: DOMRect, offset?: DOMRect) {
+    if (!offset) return rect;
+    return DOMRect.fromRect({
+        x: rect.x - offset.x,
+        y: rect.y - offset.y,
+        width: rect.width,
+        height: rect.height,
+    });
+}
+
+function _draw(ctx: CanvasRenderingContext2D, el0: HTMLElement, el1: HTMLElement, offset?: DOMRect) {
+    const rect0 = relativeTo(el0.getBoundingClientRect(), offset);
+    const rect1 = relativeTo(el1.getBoundingClientRect(), offset);
     ctx.beginPath();
     ctx.moveTo((rect0.left + rect0.right) / 2, (rect0.top + rect0.bottom) / 2);
     ctx.lineTo((rect1.left + rect1.right) / 2, (rect1.top + rect1.bottom) / 2);
@@ -80,6 +90,7 @@ function _draw(ctx: CanvasRenderingContext2D, el0: HTMLElement, el1: HTMLElement
 }
 function _draw_connectors(element: HTMLElement, valueAccessor: Function) {
     const canvas = element as HTMLCanvasElement;
+    const canvas_rect = canvas.getBoundingClientRect();
     const ctx = canvas.getContext('2d')!;
     const connectors: Connector[] = ko.unwrap(valueAccessor());
     
@@ -92,7 +103,7 @@ function _draw_connectors(element: HTMLElement, valueAccessor: Function) {
         const from_element = connector.from_output().el?.();
         const to_element = connector.to_input().el?.();
         if (from_element && to_element) {
-            _draw(ctx, from_element, to_element);
+            _draw(ctx, from_element, to_element, canvas_rect);
         }
     }
 }
