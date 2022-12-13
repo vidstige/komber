@@ -12,10 +12,16 @@
       <div class="card" data-bind="event: { mousedown: $parent.mouse.down.bind($parent.mouse), mouseup: $parent.mouse.up.bind($parent.mouse) }, style: {left: layout.left, top: layout.top}">
         <p data-bind="text: title" class="title"></p>
         <div data-bind="foreach: inputs" class="inputs">
-          <p data-bind="text: $data"></p>
+          <p>
+            <span class="input circle"></span>
+            <span data-bind="text: name"></span>
+          </p>
         </div>
         <div data-bind="foreach: outputs" class="outputs">
-          <p data-bind="text: $data"></p>
+          <p>
+            <span data-bind="text: name"></span>
+            <span class="output circle"></span>
+          </p>
         </div>
       </div>
     </div>

@@ -1,11 +1,12 @@
 import ko from "knockout";
 import { Draggable, Layout, Mouse } from "./drag";
 
-interface Input {
-
+interface Named {
+    name: string;
 }
-interface Output {
-
+interface Input extends Named {
+}
+interface Output extends Named {
 }
 
 class Card implements Draggable {
@@ -34,6 +35,6 @@ class App {
 }
 
 const app = new App();
-app.cards.push(app.card('virga', [1, 2], ['a']));
+app.cards.push(app.card('virga', [{name: 'urnid'}], [{name: 'rgb'}, {name: 'ir'}]));
 ko.applyBindings(app);
 
