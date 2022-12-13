@@ -28,6 +28,7 @@ p {
     cursor: grab;
 }
 div.area {
+    position: absolute;
     border: 1px dashed #555;
     width: 1024px;
     height: 768px;
@@ -48,4 +49,10 @@ div.outputs {
     font-size: 60%;
     float: right;
     background-color: cyan;
+}
+
+canvas.connectors {
+    position: absolute;
+    width: 1024px;
+    height: 768px;
 }
