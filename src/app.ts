@@ -30,11 +30,13 @@ class App {
         this.mouse = new Mouse();
     }
     card(title: string, inputs: Input[], outputs: Output[]): Card {
-        return new Card(title, new Layout(80, 40), inputs, outputs);
+        const layout = new Layout(Math.floor(Math.random() * 600), Math.floor(Math.random() * 600));
+        return new Card(title, layout, inputs, outputs);
     }
 }
 
 const app = new App();
+app.cards.push(app.card('constant', [], [{name: 'value'}]));
 app.cards.push(app.card('virga', [{name: 'urnid'}], [{name: 'rgb'}, {name: 'ir'}]));
 ko.applyBindings(app);
 
