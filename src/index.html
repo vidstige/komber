@@ -9,8 +9,8 @@
   </head>
   <body>
     <div data-bind="foreach: cards, event: { mousemove: mouse.move.bind(mouse) }" class="area">
-      <div class="card" data-bind="event: { mousedown: $parent.mouse.down.bind($parent.mouse), mouseup: $parent.mouse.up.bind($parent.mouse) }, style: {left: layout.left, top: layout.top}">
-        <p data-bind="text: title" class="title"></p>
+      <div class="card" data-bind="style: {left: layout.left, top: layout.top}">
+        <p data-bind="text: title, event: { mousedown: $root.mouse.down.bind($parent.mouse), mouseup: $root.mouse.up.bind($parent.mouse) }" class="title"></p>
         <div data-bind="foreach: inputs" class="inputs">
           <p>
             <span class="input circle"></span>
