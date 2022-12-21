@@ -15,10 +15,12 @@ p {
     display: inline-block;
 }
 .input {
+    float: left;
     position: relative;
     left: -16px;
 }
 .output {
+    float: right;
     position: relative;
     left: 16px;
 }

@@ -1,5 +1,5 @@
 import ko from "knockout";
-import { Draggable, Layout, Mouse } from "./drag";
+import { Draggable, Layout, Mouse, MouseBinding } from "./drag";
 
 interface Named {
     name: string;
@@ -109,6 +109,7 @@ function _draw_connectors(element: HTMLElement, valueAccessor: Function) {
     }
 }
 
+// for drawing connectors
 class ConnectorsBinding {
     init(element: HTMLElement, valueAccessor: Function, allBindings, viewModel, bindingContext) {
         _draw_connectors(element, valueAccessor);        
@@ -117,8 +118,11 @@ class ConnectorsBinding {
         _draw_connectors(element, valueAccessor);
     }
 }
-
 ko.bindingHandlers.connectors = new ConnectorsBinding();
+
+// for binding mouse drags
+ko.bindingHandlers.mouse = new MouseBinding();
+
 
 const app = new App();
 // example cards
