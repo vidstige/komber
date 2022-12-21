@@ -11,7 +11,7 @@
     <canvas id="connectors" class="connectors" data-bind="connectors: connectors" width="1024" height="768"></canvas>
     <div data-bind="foreach: cards, mouse: $root.mouse.area" class="area">
       <div class="card" data-bind="style: {left: layout.left, top: layout.top}">
-        <p data-bind="text: title, event: { mousedown: $root.mouse.down.bind($root.mouse), mouseup: $root.mouse.up.bind($root.mouse) }" class="title"></p>
+        <p data-bind="text: title, event: { mousedown: $root.mouse.down.bind($root.mouse) }" class="title"></p>
         <div data-bind="foreach: inputs" class="inputs">
           <p>
             <span class="input circle" data-bind="element: el"></span>

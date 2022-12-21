@@ -41,7 +41,7 @@ export class Mouse<T extends Draggable> {
     down(source: T, e: MouseEvent) {
         this.drag = new Drag(source as T, e);
     }
-    up(source: T, e: MouseEvent) {
+    up(e: MouseEvent) {
         this.drag = null;
     }
     move(e: MouseEvent) {
@@ -55,7 +55,8 @@ export class Mouse<T extends Draggable> {
 export class MouseBinding {
     init(element: HTMLElement, valueAccessor: Function, allBindings, viewModel, bindingContext) {
         let mouse = valueAccessor();
-        element.onmousemove = mouse.move.bind(mouse);
+        element.onmousemove = mouse.move.bind(mouse);        
+        element.onmouseup = mouse.up.bind(mouse);
     }
     update(element: HTMLElement, valueAccessor: Function, allBindings, viewModel, bindingContext) {
     }
