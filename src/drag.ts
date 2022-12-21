@@ -14,14 +14,14 @@ export interface Draggable {
 
 // Object that lives _during_ a mouse drag
 export class Drag<T extends Draggable> {
-    source: T;
+    target: T;
     originalX: number;
     originalY: number;
     start: MouseEvent;
-    constructor(source: T, event: MouseEvent) {
-        this.source = source;
-        this.originalX = source.layout.left();
-        this.originalY = source.layout.top();
+    constructor(target: T, event: MouseEvent) {
+        this.target = target;
+        this.originalX = target.layout.left();
+        this.originalY = target.layout.top();
         this.start = event;
     }
 }
@@ -35,7 +35,6 @@ export class Mouse<T extends Draggable> {
     constructor() {
         this.drag = null;
     }
-
     down(source: T, e: MouseEvent) {
         this.drag = new Drag(source as T, e);
     }
@@ -44,8 +43,8 @@ export class Mouse<T extends Draggable> {
     }
     move(e: MouseEvent) {
         if (this.drag) {
-            this.drag.source.layout.left(this.drag.originalX + e.clientX - this.drag.start.clientX);
-            this.drag.source.layout.top(this.drag.originalY + e.clientY - this.drag.start.clientY);
+            this.drag.target.layout.left(this.drag.originalX + e.clientX - this.drag.start.clientX);
+            this.drag.target.layout.top(this.drag.originalY + e.clientY - this.drag.start.clientY);
         }
     }
 }
