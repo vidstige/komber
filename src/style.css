@@ -15,12 +15,10 @@ p {
     display: inline-block;
 }
 .input {
-    float: left;
     position: relative;
     left: -16px;
 }
 .output {
-    float: right;
     position: relative;
     left: 16px;
 }
@@ -30,7 +28,7 @@ p {
 }
 div.area {
     position: absolute;
-    border: 1px dashed #555;
+    border: 2px dashed #555;
     width: 1024px;
     height: 768px;
 }

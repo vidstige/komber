@@ -95,6 +95,7 @@ function _draw_connectors(element: HTMLElement, valueAccessor: Function) {
     const connectors: Connector[] = ko.unwrap(valueAccessor());
     
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = "#777";
     for (var connector of connectors) {
         // Workaround: use layout property to subscribe to updates
         connector.from.layout.left();
