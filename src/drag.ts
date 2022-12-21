@@ -32,10 +32,8 @@ export class MouseDrag {
 
 export class Mouse<T extends Draggable> {
     public drag: Drag<T> | null;
-    public area: ThisType<T>;
     constructor() {
         this.drag = null;
-        this.area = this;
     }
 
     down(source: T, e: MouseEvent) {
